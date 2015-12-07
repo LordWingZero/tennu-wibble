@@ -17,5 +17,7 @@
   ],
   "author": "Victorio Berra",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {
+    "moment": "^2.10.6"
+  }
 }
