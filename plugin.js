@@ -36,9 +36,7 @@ var WibblePlugin = {
                     throw new Error(requiresAdminHelp);
                 }
 
-                if (IRCMessage.message.toLowerCase() !== 'wibble' &&
-                    IRCMessage.message.toLowerCase() !== 'wobble' &&
-                    IRCMessage.message.toLowerCase() !== 'jelly') {
+                if (['wibble','wobble','jelly'].indexOf(IRCMessage.message.toLowerCase()) === -1) {
                     return;
                 }
 
@@ -57,6 +55,9 @@ var WibblePlugin = {
                 }
                 else if (currentverb === 'wobble' && existingRequest.lastSaidVerb === 'wibble') {
                     response = 'jelly';
+                }
+                else if (currentverb === 'jelly' && existingRequest.lastSaidVerb === 'wobble') {
+                    response = 'Now you\'re getting it!';
                 }
                 else if (currentverb === 'jelly' && existingRequest.lastSaidVerb === 'wobble') {
                     response = 'Now you\'re getting it!';
