@@ -1,7 +1,5 @@
 var moment = require('moment');
 
-const requiresAdminHelp = "Requires admin privileges.";
-
 var WibblePlugin = {
     init: function(client, imports) {
 
@@ -13,12 +11,6 @@ var WibblePlugin = {
         }
 
         function WibbleWobbleCheck(IRCMessage) {
-
-                // isadmin will be "undefined" if cooldown system is enabled
-                // isadmin will be true/false if cooldown system is disabled
-                if (typeof(isadmin) !== "undefined" && isadmin === false) {
-                    throw new Error(requiresAdminHelp);
-                }
 
                 if (['wibble','wobble','jelly'].indexOf(IRCMessage.message.toLowerCase()) === -1) {
                     return;
